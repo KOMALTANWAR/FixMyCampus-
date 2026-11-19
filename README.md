@@ -124,3 +124,5 @@ FixMyCampus/
 - Current prototype uses browser localStorage, not a shared database.
 - Admin mode is a demonstration toggle, not secure role-based access.
 - Future version can add backend APIs, authentication, database, email notifications and real-time updates.
+# FixMyCampus-
+FixMyCampus is a college-based project designed to identify and address common problems faced by students on campus .This project is developed as a past of lab work to promote problem-solving , teamwork , and practical learning through technology.
