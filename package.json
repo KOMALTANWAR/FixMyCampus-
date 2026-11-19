@@ -1,0 +1,8 @@
+{
+  "name": "fixmycampus",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Campus issue reporting portal - Agile and DevOps mini project",
+  "scripts": { "test": "node --test" }
+}

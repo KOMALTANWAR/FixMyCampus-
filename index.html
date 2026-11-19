@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b35">
+  <meta name="description" content="FixMyCampus - campus issue reporting and tracking portal">
+  <title>FixMyCampus | Campus Care Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="FixMyCampus home">
+        <span class="brand-icon">✳</span><span>FixMy<span class="brand-accent">Campus</span><small>CAMPUS CARE PORTAL</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-view="reports"><span>▤</span> All reports <b id="nav-report-count">0</b></button>
+        <button class="nav-item" data-view="new"><span>＋</span> Report an issue</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-symbol">✦</div><strong>See something?</strong><p>Small reports make a better campus.</p><button id="help-report">Report an issue <span>↗</span></button></div>
+        <div class="profile"><div class="avatar">ST</div><div><strong>Student Portal</strong><small>Campus community</small></div><span class="profile-dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb-current">Overview</strong></div>
+        <div class="top-actions"><span class="live-dot"></span><span class="top-status">Campus portal active</span><button class="role-switch" id="role-switch" title="Switch between student and admin demo views"><span>♙</span> <span id="role-label">Student view</span> <b>⌄</b></button></div>
+      </header>
+
+      <section class="page-view" id="overview-view">
+        <div class="page-heading">
+          <div><div class="eyebrow">MONDAY, YOUR CAMPUS DASHBOARD</div><h1>Good morning! <span class="wave">✦</span></h1><p>Here’s what’s happening around your campus today.</p></div>
+          <button class="primary-btn" id="new-report-top"><span>＋</span> Report an issue</button>
+        </div>
+        <div class="welcome-strip"><div><span class="strip-tag">CAMPUS CARE · COMMUNITY FIRST</span><h2>A better campus starts with you.</h2><p>Notice a problem? Let’s get it to the right team.</p></div><div class="strip-art"><div class="art-circle">✳</div><div class="art-line"></div><div class="art-small">CAMPUS<br>CARE</div></div></div>
+
+        <div class="section-title"><div><h2>Issue overview</h2><p>A quick snapshot of reported campus issues.</p></div><span class="updated-label"><span class="live-dot"></span> Live updates</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total reports</span><span class="stat-icon violet">▤</span></div><strong id="stat-total">0</strong><div class="stat-foot">All submitted reports</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending review</span><span class="stat-icon amber">◷</span></div><strong id="stat-pending">0</strong><div class="stat-foot">Waiting for attention</div></article>
+          <article class="stat-card"><div class="stat-top"><span>In progress</span><span class="stat-icon blue">↗</span></div><strong id="stat-progress">0</strong><div class="stat-foot">Being worked on</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Resolved</span><span class="stat-icon green">✓</span></div><strong id="stat-resolved">0</strong><div class="stat-foot">Issues taken care of</div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel recent-panel"><div class="panel-heading"><div><h2>Recent reports</h2><p>Latest updates from your campus</p></div><button class="text-btn" data-goto="reports">View all <span>→</span></button></div><div id="recent-list" class="report-list"></div></section>
+          <section class="panel status-panel"><div class="panel-heading"><div><h2>Resolution status</h2><p>How reports are progressing</p></div><span class="mini-menu">•••</span></div><div class="chart-wrap"><div class="donut" id="status-donut"><div><strong id="donut-total">0</strong><small>REPORTS</small></div></div><div class="legend"><div><i class="legend-dot pending"></i><span>Pending</span><b id="legend-pending">0</b></div><div><i class="legend-dot progress"></i><span>In progress</span><b id="legend-progress">0</b></div><div><i class="legend-dot resolved"></i><span>Resolved</span><b id="legend-resolved">0</b></div></div></div><div class="status-note"><span>✦</span> Every report helps improve campus life.</div></section>
+        </div>
+        <div class="footer-note">Made for a better campus <span>✳</span> FixMyCampus Student Project</div>
+      </section>
+
+      <section class="page-view hidden" id="reports-view">
+        <div class="page-heading compact"><div><div class="eyebrow">CAMPUS COMMUNITY</div><h1>All reports</h1><p>Browse and track issues reported across campus.</p></div><button class="primary-btn" id="new-report-list">＋ Report an issue</button></div>
+        <section class="panel all-reports-panel"><div class="filter-row"><label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search reports or locations..."></label><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Pending">Pending</option><option value="In Progress">In progress</option><option value="Resolved">Resolved</option></select><select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option><option>Cleanliness</option><option>Electrical</option><option>Water</option><option>Infrastructure</option><option>Internet</option><option>Other</option></select></div><div id="all-reports-list" class="all-reports-list"></div></section>
+        <div class="footer-note">FixMyCampus <span>✳</span> Track it. Fix it. Improve it.</div>
+      </section>
+
+      <section class="page-view hidden" id="new-view">
+        <div class="page-heading compact"><div><div class="eyebrow">HELP US IMPROVE</div><h1>Report an issue</h1><p>Share a few details and we’ll route it to the right team.</p></div></div>
+        <div class="form-layout"><section class="panel form-panel"><form id="report-form">
+          <div class="form-intro"><span class="form-icon">✳</span><div><h2>Tell us what needs fixing</h2><p>Fields marked with <b>*</b> are required.</p></div></div>
+          <div class="form-grid"><label class="field full">Issue title <b>*</b><input name="title" required maxlength="75" placeholder="e.g. Water cooler not working"></label>
+            <label class="field">Category <b>*</b><select name="category" required><option value="">Choose a category</option><option>Cleanliness</option><option>Electrical</option><option>Water</option><option>Infrastructure</option><option>Internet</option><option>Other</option></select></label>
+            <label class="field">Location <b>*</b><input name="location" required maxlength="70" placeholder="e.g. Library, 2nd floor"></label>
+            <label class="field">Priority <b>*</b><select name="priority" required><option value="Medium">Medium</option><option value="Low">Low</option><option value="High">High</option></select></label>
+            <label class="field">Your name <input name="reporter" maxlength="45" placeholder="Optional"></label>
+            <label class="field full">Description <b>*</b><textarea name="description" required maxlength="500" rows="4" placeholder="Describe the issue and any useful details..."></textarea><small class="field-hint">Please be clear so the maintenance team can help faster.</small></label>
+            <label class="field full">Attach a photo <span class="optional">(optional)</span><span class="upload-box"><input id="photo-input" type="file" accept="image/*"><span class="upload-icon">↑</span><span><strong>Choose an image</strong><small>PNG or JPG · Max 1.5 MB</small></span><span id="file-name" class="file-name">No file selected</span></span></label>
+          </div>
+          <div class="form-actions"><button class="secondary-btn" type="reset" id="clear-form">Clear form</button><button class="primary-btn" type="submit">Submit report <span>→</span></button></div>
+        </form></section><aside class="tips-panel"><div class="tips-icon">✦</div><h3>Help us help you.</h3><p>A good report makes it easier for the right team to take action.</p><div class="tip"><b>01</b><span><strong>Be specific</strong><small>Mention the exact location.</small></span></div><div class="tip"><b>02</b><span><strong>Add details</strong><small>Explain what you noticed.</small></span></div><div class="tip"><b>03</b><span><strong>Choose priority</strong><small>Help us understand urgency.</small></span></div><div class="privacy-note">♧ &nbsp; Your report is saved in this browser for this demo.</div></aside></div>
+        <div class="footer-note">Thank you for making a difference <span>✳</span></div>
+      </section>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body></html>

@@ -1,0 +1,44 @@
+
+> fixmycampus@1.0.0 test
+> node --test
+
+TAP version 13
+# Subtest: creates a valid report with default pending status
+ok 1 - creates a valid report with default pending status
+  ---
+  duration_ms: 1.291659
+  type: 'test'
+  ...
+# Subtest: trims text and rejects missing required fields
+ok 2 - trims text and rejects missing required fields
+  ---
+  duration_ms: 0.470158
+  type: 'test'
+  ...
+# Subtest: rejects invalid category and priority
+ok 3 - rejects invalid category and priority
+  ---
+  duration_ms: 2.157796
+  type: 'test'
+  ...
+# Subtest: counts report statuses correctly
+ok 4 - counts report statuses correctly
+  ---
+  duration_ms: 0.898675
+  type: 'test'
+  ...
+# Subtest: filters by status, category and search query
+ok 5 - filters by status, category and search query
+  ---
+  duration_ms: 0.281358
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.615013
